@@ -1,0 +1,71 @@
+<% layout('layouts/boilerplate') -%>
+   <br><br><br>
+    <div class="container col-8 border p-5 mb-5 mt-5 shadow-lg p-3 mb-5 bg-white rounded">
+        <h3 class="mb-3 mg-auto offset-5">Edit Profile</h3>
+        <form action="/profile_edit/<%= user.username%>" method="post" novalidate class="needs-validation form "
+            enctype="multipart/form-data">
+
+            <div class="profile-image  row col-3">
+                <img src="<%= user.profile_photo.url %>" alt="profile image" class="explore__avatar" height="180"
+                    width="200" >
+                <div class="col">
+
+                    <input type="file" class="form-control" id="img" name="profile_photo"
+                       class="mt-5 col-sm-1">
+                </div>
+            </div>
+            <div class="row col-9">
+                <div class="mb-4 row">
+                    <label for="title" class="col-sm-1 col-form-label">Username </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="title" name="username" placeholder="title"
+                            value="<%= user.username %>" required>
+                        <div class="invalid-feedback">Please enter valid title</div>
+                    </div>
+                </div>
+                <div class="mb-4 row">
+                    <label for="country" class="col-sm-1 col-form-label">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="country" name="name" required
+                            value="<%= user.name %>">
+                        <div class="invalid-feedback">Please enter valid name</div>
+                    </div>
+                </div>
+                <div class="mb-4 row">
+                    <!-- <div class=" row col-md-6"> -->
+                    <label for="location" class="col-sm-1 col-form-label">email </label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="location" name="email" value="<%=user.email %>"
+                            required>
+                        <div class="invalid-feedback">Please enter valid email</div>
+                        <!-- </div> -->
+                    </div>
+
+
+                </div>
+                <div class="mb-4 row">
+                    <label for="price" class="col-sm-1 col-form-label">Phone Number </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="price" name="phonenumber"
+                            value="<%= user.phonenumber %>" required>
+                        <div class="invalid-feedback">Please enter valid price</div>
+                    </div>
+                </div>
+                <div class="mb-4 row">
+                    <label for="des" class="col-sm-1 col-form-label">Bio </label>
+                    <div class="col-sm-10">
+                        <textarea name="bio" id="des" class="form-control" required><%=user.bio%></textarea>
+                        <div class="invalid-feedback">Please enter valid description</div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="button">
+                    <button class="btn btn-outline-danger" type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+
+    </div>

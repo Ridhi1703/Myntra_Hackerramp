@@ -1,0 +1,23 @@
+<% layout('layouts/boilerplate') -%>
+
+  <div id="loginbox">
+    <img
+      src="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/2021/7/14/1db28809-f3db-48b1-b303-d937716565661626257521634-Banner_Hamburger--2---1-.jpg" />
+    <div class="loginbody">
+      <div class="loginheader">
+        Login
+      </div>
+      <form id="login" action="/user/signin" method="post" >
+        <input type="text" id="mobileno" placeholder="username" name="username" /><br />
+        <input type="password" id="password" placeholder="Enter Password" name="password" />
+        <p>
+          By continuing I agree to the<span class="smallhead">
+            Terms of Use </span>&<span id="small"> Privacy Policy</span>
+        </p>
+        <p>Don't have account <span> <a href="/user/register" style="text-decoration: none;">Signup</a></span></p>
+        <div id="alert"></div>
+        <button class="continue" type="submit">CONTINUE</button>
+       
+      </form>
+    </div>
+  </div>

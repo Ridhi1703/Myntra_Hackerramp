@@ -1,0 +1,54 @@
+<% layout('layouts/boilerplate') -%>
+
+
+<div id="heading">
+    <div id="page">Home/CLothing/<span>Women</span></div>
+    <h2>Women <span></span></h2>
+</div>
+<div id="horizontal">
+    <h3>FILTERS</h3>
+    <div>
+        <div>
+            Bundles 
+            <span class="material-symbols-outlined mb">expand_more</span>
+        </div>
+        <div>
+            Country of Origin
+            <span class="material-symbols-outlined">expand_more</span>
+        </div>
+        <div>
+            Size 
+            <span class="material-symbols-outlined">expand_more</span>
+        </div>
+    </div>
+    <select name="" id="sort">
+        <option value="">Recommended</option>
+        <option value="price_dsc">Price: High to Low</option>
+        <option value="price_asc">Price: Low to High</option>
+        <option value="discount_dsc">Better Discount</option>
+    </select>
+</div>
+<div id="body">
+    <div id="filter"></div>
+    <div id="container-parent">
+        <div id="container">
+         
+            <% for(let i=0;i<data.length;i++){%>
+               <a href="/product/<%= data[i]._id %>">
+                 <div >
+
+                 <img src="<%= data[i].images.split("|")[0]%>" alt="">
+                   <h4><%= data[i].brand %></h4>
+                   <p><%= data[i].title %></p>
+                   <h4 class="price">
+                    Rs.<%= data[i].variant_price %>
+                    <strike>Rs.<%= data[i].variant_compare_at_price %></strike>
+                    <span>40% OFF</span>
+                   </h4>
+                 </div>
+                </a>
+            <% }%> 
+        </div>
+    </div>
+    <div id="page-nav"></div>
+</div>

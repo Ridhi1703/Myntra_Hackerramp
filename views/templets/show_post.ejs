@@ -1,0 +1,16 @@
+<% layout('layouts/boilerplate') -%>
+    
+    <div class="container col-6 border p-5 mb-5 mt-5 shadow-lg p-3 mb-5 bg-white rounded">
+        <img src="<%= post.image.url %>" alt="" style="height: 30rem; width: 35rem;">
+        <div><img id="svg" src="https://www.svgrepo.com/show/532473/heart.svg" alt="" style="display: inline;"><span>
+                <%= post.likes %>
+            </span> &nbsp;&nbsp;<span>
+                <img id="svg" src="https://www.svgrepo.com/show/533232/message-circle.svg" alt="" style="display: inline;">   <%= post.dislike %> 
+            </span></div>
+        <p> <b>
+               <a href="/profile/<%=  post.owner.username %>"> <%= post.owner.username %></a>
+            </b>
+            <%= post.caption %>
+        </p>
+
+    </div>

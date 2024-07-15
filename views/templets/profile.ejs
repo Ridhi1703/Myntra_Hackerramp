@@ -1,0 +1,128 @@
+<% layout('layouts/boilerplate') -%>
+    <br><br>
+    <header>
+        <div class="container">
+            <div class="profile">
+                <div class="profile-image">
+                    <img src="<%= user.profile_photo.url %>" alt="profile image" class="explore__avatar" height="250"
+                        width="260">
+                </div>
+                <div class="profile-user-settings pr-3">
+                    <h1 class="profile-user-name" style="display:inline-flex;font-size: 200%; font-weight: bold;">
+                        <%=user.username%>
+
+                    </h1>
+                    <% if(user._id.equals(currUser._id)) {%>
+                        <a href="/profile_edit/<%= user.username %>"
+                            class="btn profile-edit-btn btn-outline-primary mr-2">Edit Profile</a>
+                        <a href="/user/logout" class="btn profile-edit-btn btn-outline-danger mr-2">Logout</a>
+                        <% } else{%>
+                            <a href="/follow/<%= user.username %>">
+                                <button user_id='user._id'
+                                    class="follow_unfollow_button btn btn-primary  profile-edit-btn mr-2">Follow</button></a>
+                                    <a href="/unfollow/<%= user.username %>">
+                                <button user_id='user._id'
+                                    class="follow_unfollow_button btn profile-edit-btn btn-outline-primary mr-2">Unfollow</button></a>
+                            <% } %>
+
+                </div>
+                <div class="profile-stats">
+                    <ul>
+
+                        <li><span class="profile-stat-count"><%- user.post.length %></span> posts</li>
+                        <li data-toggle="modal" data-target="#followersmodel"><span class="profile-stat-count"><%-
+                                    user.followers_count %></span> followers</li>
+                        <li data-toggle="modal" data-target="#followingsmodel"><span class="profile-stat-count"><%-
+                                    user.following_count %></span> following</li>
+                    </ul>
+                </div>
+                <div class="profile-bio">
+
+                    <p><span class="profile-real-name">
+                            <%=user.name %>
+                        </span><br>
+                        <%= user.bio %>
+                    </p>
+                    <% if(user._id.equals(currUser._id)) {%>
+                        <a href="/create_post/<%= user.username %>" style="text-decoration: none;">
+                            <div class="create-post">
+                                Create Post
+                            </div>
+                        </a>
+                        <% } %>
+                </div>
+
+            </div>
+        </div>
+
+    </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <main>
+        <div class="col" id="post_button" style="font-weight: 400; text-align: center; font-size: 1.5rem;">
+            My Posts
+        </div>
+        <hr>
+        <div class="container">
+            <center>
+                <div class="gallery" id="user_post">
+                    <% for(let i=0;i<user.post.length;i++) {%>
+
+                        <a href="/show_post/<%= user.post[i]._id %>">
+                            <div class="gallery-item" tabindex="0">
+                                <img src="<%= user.post[i].image.url %>" alt="user post" class="gallery-image">
+
+                                <div class="gallery-item-type">
+                                    <span class="visually-hidden">Gallery</span><i class="fas fa-clone"
+                                        aria-hidden="true"></i>
+                                </div>
+
+                                <div class="gallery-item-info">
+                                    <ul>
+                                        <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i
+                                                class="fas fa-heart" aria-hidden="true"></i>
+                                            <%= user.post[i].likes%>
+                                        </li>
+                                        <li class="gallery-item-comments"><span
+                                                class="visually-hidden">Comments:</span><i class="fas fa-comment"
+                                                aria-hidden="true"></i>
+                                            <%= user.post[i].dislike%>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </a>
+                        <% } %>
+                            <% if(user.post.length==0) {%>
+                                <div class="card ml-3 text-center">
+                                    <div class="card-body">
+                                        <h3 class="card-title">No Posts </h3>
+                                        <p class="card-text" style="font-size: 120%;">
+                                            <% if(user._id.equals(currUser._id)){ %>
+                                                You Haven't uploaded any posts
+                                                <% }else{ %>
+                                                    <%= user.name %> Haven't uploaded any posts
+                                                        <% } %>
+                                        </p>
+
+                                    </div>
+                                </div>
+                                <% } %>
+
+                </div>
+
+
+            </center>
+        </div>
+    </main>

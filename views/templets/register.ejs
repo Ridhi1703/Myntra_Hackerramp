@@ -1,0 +1,21 @@
+<% layout('layouts/boilerplate') -%>
+
+  <div id="signinbox">
+    <div id="textbox">
+      <div id="signintext">
+        <p class="signinheader">CREATE A NEW ACCOUNT</p>
+      </div>
+      <form id="formContainer" action="/user/register" method="post">
+        <input type="text" id="username" placeholder="Username" required name="username" />
+        <input type="mobileno" id="mobileno" placeholder="Mobile Number" required name="phonenumber" />
+        <input type="text" id="email" placeholder="Email id" required name="email" />
+        <input type="password" id="password" placeholder="Password" name="password" required />
+        <div id="alert"></div>
+        <br />
+        <button class="signinbtn" type="submit">SIGN UP</button><br />
+        <p style="text-align: center">
+          Already have an account <span ><a href="/user/signin" style="text-decoration: none;">click Here</a></span>
+        </p>
+      </form>
+    </div>
+  </div>
