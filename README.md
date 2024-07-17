@@ -41,3 +41,4 @@ npm run dev
 - Passport Authentication
 - Passport.js
 - cloudinary Storage
+- EJS template
