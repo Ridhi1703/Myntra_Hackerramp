@@ -70,6 +70,6 @@ npm run dev
 
 ## Benefits:
 
-- Enhanced User Engagement: Encouraging users to share their purchases on Instagram increases brand visibility and engagement.
+- Enhanced User Engagement: Encouraging users to share their purchases on Myntra  increases brand visibility and engagement.
 - Improved Marketing: Leveraging user-generated content for marketing purposes enhances the effectiveness of marketing campaigns.
-- Competitive Advantage: Standing out in the competitive e-commerce landscape by offering innovative social media integration features.
+- Competitive Advantage: Standing out in the competitive e-commerce landscape by offering innovative social media features.
